@@ -1,2 +1,2 @@
-# nn
-Neural network models in PyTorch
+# Neural network models in PyTorch
+These might not be the most popular models, but are the ones we find useful through our research.
