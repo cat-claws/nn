@@ -2,8 +2,6 @@
 dependencies = ["torch"]
 
 import torch
-from simpleconv import Net, Net_
-from convduonet import ConvDuoNet
 
 def loader(constructor, pretrained, **kwargs):
 	model = constructor(**kwargs)
@@ -13,6 +11,10 @@ def loader(constructor, pretrained, **kwargs):
 	return model
 
 
+
+from simpleconv import Net, Net_
+from convduonet import ConvDuoNet
+
 def convduonet(pretrained=False, **kwargs):
 	return loader(ConvDuoNet, pretrained=pretrained, **kwargs)
 
@@ -21,3 +23,14 @@ def tutorialconvnet(pretrained=False, **kwargs):
 
 def exampleconvnet(pretrained=False, **kwargs):
 	return loader(Net_, pretrained=pretrained, **kwargs)
+
+
+
+from pytorchcv.models.resnet_cifar import get_resnet_cifar
+from pytorchcv.models.wrn_cifar import get_wrn_cifar
+
+def resnet_cifar(pretrained=False, **kwargs):
+	return loader(get_resnet_cifar, pretrained=pretrained, **kwargs)
+	
+def wrn_cifar(pretrained=False, **kwargs):
+	return loader(get_wrn_cifar, pretrained=pretrained, **kwargs)
