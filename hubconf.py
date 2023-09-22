@@ -13,11 +13,11 @@ def loader(constructor, pretrained, **kwargs):
 	return model
 
 
-def convduonet(pretrained=False):
-	return loader(ConvDuoNet, pretrained=pretrained)
+def convduonet(pretrained=False, **kwargs):
+	return loader(ConvDuoNet, pretrained=pretrained, **kwargs)
 
-def tutorialconvnet(pretrained=False):
-	return loader(Net, pretrained=pretrained)
+def tutorialconvnet(pretrained=False, **kwargs):
+	return loader(Net, pretrained=pretrained, **kwargs)
 
-def exampleconvnet(pretrained=False):
-	return loader(Net_, pretrained=pretrained)
+def exampleconvnet(pretrained=False, **kwargs):
+	return loader(Net_, pretrained=pretrained, **kwargs)
