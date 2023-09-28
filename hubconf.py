@@ -31,9 +31,13 @@ def exampleconvnet(pretrained=False, **kwargs):
 
 from pytorchcv.models.resnet_cifar import get_resnet_cifar
 from pytorchcv.models.wrn_cifar import get_wrn_cifar
+from pytorchcv.models.densenet_cifar import get_densenet_cifar
 
 def resnet_cifar(pretrained=False, **kwargs):
 	return loader(get_resnet_cifar, pretrained=pretrained, **kwargs)
 	
 def wrn_cifar(pretrained=False, **kwargs):
 	return loader(get_wrn_cifar, pretrained=pretrained, **kwargs)
+
+def densenet_cifar(pretrained=False, **kwargs):
+	return loader(get_densenet_cifar, pretrained=pretrained, **kwargs)
