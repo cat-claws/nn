@@ -3,13 +3,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class MultiLayerPerceptron(nn.Module):	
-	def __init__(self, in_features=784, out_features=10):
+	def __init__(self, in_features=784, out_features=10, hidden = [120, 84]):
 		super().__init__()
-		self.dense = nn.ModuleList([
-			nn.Linear(in_features, 120),
-			nn.Linear(120, 84),
-			nn.Linear(84, out_features)
-		])	
+		layers = []
+		for i, j in zip([in_features] + hidden, hidden + [out_features]):
+			layers.extend([nn.Linear(i, j), nn.ReLU()])
+		self.dense = nn.ModuleList(layers[:-1])
+		
 	def forward(self, x):
 		x = x.flatten(1)
 		for d in self.dense:
