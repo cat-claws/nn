@@ -2,6 +2,19 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+class MultiLayerPerceptron(nn.Module):	
+	def __init__(self, in_features=784, out_features=10):
+		super().__init__()
+		self.dense = nn.ModuleList([
+			nn.Linear(in_features, 120),
+			nn.Linear(120, 84),
+			nn.Linear(84, out_features)
+		])	
+	def forward(self, x):
+		x = x.flatten(1)
+		for d in self.dense:
+			x = d(x)
+		return x
 
 class Net(nn.Module):
 	
