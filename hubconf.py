@@ -12,9 +12,12 @@ def loader(constructor, pretrained, **kwargs):
 
 
 
-from simpleconv import Net, Net_
+from simple import Net, Net_, MultiLayerPerceptron
 from convduonet import ConvDuoNet
 
+def mlp(pretrained=False, **kwargs):
+	return loader(MultiLayerPerceptron, pretrained=pretrained, **kwargs)
+	
 def convduonet(pretrained=False, **kwargs):
 	return loader(ConvDuoNet, pretrained=pretrained, **kwargs)
 
