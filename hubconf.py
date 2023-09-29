@@ -12,7 +12,7 @@ def loader(constructor, pretrained, **kwargs):
 
 
 
-from simple import Net, Net_, MultiLayerPerceptron
+from simple import Net, Net_, MultiLayerPerceptron, SimpleCNN
 from convduonet import ConvDuoNet
 
 def mlp(pretrained=False, **kwargs):
@@ -27,7 +27,8 @@ def tutorialconvnet(pretrained=False, **kwargs):
 def exampleconvnet(pretrained=False, **kwargs):
 	return loader(Net_, pretrained=pretrained, **kwargs)
 
-
+def simplecnn(pretrained=False, **kwargs):
+	return loader(SimpleCNN, pretrained=pretrained, **kwargs)
 
 from pytorchcv.models.resnet_cifar import get_resnet_cifar
 from pytorchcv.models.wrn_cifar import get_wrn_cifar
