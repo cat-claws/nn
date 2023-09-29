@@ -70,3 +70,29 @@ class Net_(nn.Module):
 		x = self.fc2(x)
 		# output = F.log_softmax(x, dim=1)
 		return x # output
+
+class SimpleCNN(nn.Module):
+	def __init__(self, convs, linears, num_classes=10, dropout=None):
+		super(SimpleCNN, self).__init__()
+	
+		layers = []
+	
+		for l in convs:
+			layers.extend([nn.Conv2d(*l), nn.ReLU(), nn.MaxPool2d(2)])
+			if dropout:
+				layers.append(nn.Dropout2d(dropout))
+		
+		layers.append(nn.Flatten(start_dim=1))
+	
+		for i, j in zip(linears[:-1], linears[1:]):
+			layers.extend([nn.Linear(i, j), nn.ReLU()])
+			if dropout:
+				layers.append(nn.Dropout(dropout))
+				
+		layers.append(nn.Linear(linears[-1], num_classes))
+	
+		self.layers = nn.Sequential(*layers)   # Changed to nn.Sequential
+	
+	def forward(self, x):
+		x = self.layers(x)
+		return x
