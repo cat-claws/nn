@@ -26,7 +26,15 @@ model = torch.hub.load('cat-claws/nn', 'wrn_cifar', num_classes=10, blocks=10, w
 model(torch.nn.functional.pad(x, 4 * [2]))
 ```
 
-Others
+A few models that work on MNIST
 ```
 model = torch.hub.load('cat-claws/nn', 'mlp', hidden = [120, 84])
+model = torch.hub.load('cat-claws/nn', 'simplecnn', convs = [], linears = [784, 120, 84], pretrained = 'mlp_784_120_84_GdyC')
+# note that the two above are actually the same networks in different coding style
+
+model = torch.hub.load('cat-claws/nn', 'simplecnn', convs = [ (1, 16, 5), (16, 24, 5) ], linears = [24*4*4, 100], pretrained = 'simplecnn_5_16_24_100_ebyC')
+model = torch.hub.load('cat-claws/nn', 'simplecnn', convs = [ (1, 10, 5), (10, 20, 5) ], linears = [320, 50], pretrained = 'simplecnn_5_10_20_50_ibyC')
+model = torch.hub.load('cat-claws/nn', 'simplecnn', convs = [ (1, 32, 5, 1, 2),  (32, 64, 5, 1, 2)], linears = [64*7*7, 1024], pretrained = 'simplecnn_5_32_64_1024_dbyC')
+model = torch.hub.load('cat-claws/nn', 'exampleconvnet', in_channels = 1, pretrained = 'exampleconvnet_cbyC')
+
 ```
