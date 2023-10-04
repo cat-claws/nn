@@ -42,3 +42,18 @@ def wrn_cifar(pretrained=False, **kwargs):
 
 def densenet_cifar(pretrained=False, **kwargs):
 	return loader(get_densenet_cifar, pretrained=pretrained, **kwargs)
+
+from inception_resnet_v1 import InceptionResnetV1
+
+def inception_resnet_v1(pretrained=False, **kwargs):
+	return loader(InceptionResnetV1, pretrained=pretrained, **kwargs)
+
+from iresnet import IResNet
+
+def iresnet(pretrained=False, **kwargs):
+	return loader(IResNet, pretrained=pretrained, **kwargs)
+
+from lightcnn import LightCNN
+
+def lightcnn(pretrained=False, **kwargs):
+	return loader(LightCNN, pretrained=pretrained, **kwargs)
