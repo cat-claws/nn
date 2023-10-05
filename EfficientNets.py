@@ -775,9 +775,13 @@ class EfficientNet(nn.Module):
         super().__init__()
         assert isinstance(blocks_args, list), 'blocks_args should be a list'
         assert len(blocks_args) > 0, 'block args must be greater than 0'
-        self._global_params = global_params
-        self._blocks_args = blocks_args
-
+        if _global_params is None:
+            self._blocks_args, self._global_params = efficientnet(
+                width_coefficient=1, depth_coefficient=1, 
+                dropout_rate=0.2, image_size=112)
+        else:
+            self._blocks_args = blocks_args
+            self._global_params = global_params
         # Batch norm parameters
         bn_mom = 1 - self._global_params.batch_norm_momentum
         bn_eps = self._global_params.batch_norm_epsilon
