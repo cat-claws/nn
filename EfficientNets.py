@@ -773,7 +773,7 @@ class EfficientNet(nn.Module):
 
     def __init__(self, out_h, out_w, feat_dim, blocks_args=None, global_params=None):
         super().__init__()
-        if _global_params is None:
+        if global_params is None:
             self._blocks_args, self._global_params = efficientnet(
                 width_coefficient=1, depth_coefficient=1, 
                 dropout_rate=0.2, image_size=112)
