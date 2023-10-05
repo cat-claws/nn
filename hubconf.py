@@ -57,3 +57,37 @@ from lightcnn import LightCNN
 
 def lightcnn(pretrained=False, **kwargs):
 	return loader(LightCNN, pretrained=pretrained, **kwargs)
+
+
+from MobileFaceNets import MobileFaceNet
+from EfficientNets import EfficientNet
+from GhostNet import GhostNet
+from AttentionNets import ResidualAttentionNet
+from TF_NAS import TF_NAS_A
+from ReXNets import ReXNetV1
+from LightCNN import LightCNN
+from RepVGG import RepVGG
+
+def mobilefacenet_facexzoo(pretrained=False, **kwargs):
+	return loader(MobileFaceNet, pretrained=pretrained, **kwargs)
+
+def efficientnet_facexzoo(pretrained=False, **kwargs):
+	return loader(EfficientNet, pretrained=pretrained, **kwargs)
+
+def ghostnet_facexzoo(pretrained=False, **kwargs):
+	return loader(GhostNet, pretrained=pretrained, **kwargs)
+
+def attentionnet_facexzoo(pretrained=False, **kwargs):
+	return loader(ResidualAttentionNet, pretrained=pretrained, **kwargs)
+
+def tf_nas_facexzoo(pretrained=False, **kwargs):
+	return loader(TF_NAS_A, pretrained=pretrained, **kwargs)
+
+def rexnet_facexzoo(pretrained=False, **kwargs):
+	return loader(ReXNetV1, pretrained=pretrained, **kwargs)
+
+def lightcnn_facexzoo(pretrained=False, **kwargs):
+	return loader(LightCNN, pretrained=pretrained, **kwargs)
+
+def repvgg_facexzoo(pretrained=False, **kwargs):
+	return loader(RepVGG, pretrained=pretrained, **kwargs)
