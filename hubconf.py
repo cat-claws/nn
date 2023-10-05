@@ -53,10 +53,10 @@ from iresnet import IResNet
 def iresnet(pretrained=False, **kwargs):
 	return loader(IResNet, pretrained=pretrained, **kwargs)
 
-from lightcnn import LightCNN
+from lightcnn import LightCNN as LightCNN_
 
 def lightcnn(pretrained=False, **kwargs):
-	return loader(LightCNN, pretrained=pretrained, **kwargs)
+	return loader(LightCNN_, pretrained=pretrained, **kwargs)
 
 
 from MobileFaceNets import MobileFaceNet
