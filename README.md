@@ -46,11 +46,11 @@ model = torch.hub.load('cat-claws/nn', 'lightcnn_facexzoo', depth = 29, drop_rat
 
 model = torch.hub.load('cat-claws/nn', 'inception_resnet_v1', num_classes = 8631, pretrained = 'inceptionresnetv1_vggface2')
 model = torch.hub.load('cat-claws/nn', 'iresnet', layers = [3, 4, 14, 3], pretrained = 'inceptionresnetv1_vggface2')
-model = torch.hub.load('cat-claws/nn', 'mobilefacenet_facexzoo', embedding_size = 512, out_h = 7, out_w = 7)
-model = torch.hub.load('cat-claws/nn', 'efficientnet_facexzoo', out_h = 7, out_w = 7, feat_dim = 512)
+model = torch.hub.load('cat-claws/nn', 'efficientnet_facexzoo', out_h = 7, out_w = 7, feat_dim = 512, pretrained = 'efficientnet_facexzoo')
 model = torch.hub.load('cat-claws/nn', 'ghostnet_facexzoo', out_h = 7, out_w = 7, feat_dim = 512, pretrained = 'ghostnet_facexzoo')
 model = torch.hub.load('cat-claws/nn', 'tf_nas_facexzoo',  out_h = 7, out_w = 7, feat_dim = 512, pretrained = 'tfnas_facexzoo')
 model = torch.hub.load('cat-claws/nn', 'attentionnet_facexzoo', stage1_modules = 1, stage2_modules = 2, stage3_modules = 3,  out_h = 7, out_w = 7, feat_dim = 512, pretrained = 'attentionnet_facexzoo')
 model = torch.hub.load('cat-claws/nn', 'rexnet_facexzoo', use_se=False, pretrained = 'rexnet_facexzoo')
 model = torch.hub.load('cat-claws/nn', 'efficientnet_facexzoo', out_h = 7, out_w = 7, feat_dim = 512, pretrained = 'efficientnet_facexzoo')
+model = torch.hub.load('cat-claws/nn', 'mobilefacenet_facexzoo', embedding_size = 512, out_h = 7, out_w = 7) # unfortunately, I did not get pretrained weights
 ```
