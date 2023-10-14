@@ -91,3 +91,8 @@ def lightcnn_facexzoo(pretrained=False, **kwargs):
 
 def repvgg_facexzoo(pretrained=False, **kwargs):
 	return loader(RepVGG, pretrained=pretrained, **kwargs)
+
+from fasterrcnn import fasterrcnn_mobilenet_v3_large_320_fpn
+
+def fasterrcnn(pretrained=False, **kwargs):
+	return loader(fasterrcnn_mobilenet_v3_large_320_fpn, pretrained=pretrained, **kwargs)
