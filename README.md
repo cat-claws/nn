@@ -54,3 +54,8 @@ model = torch.hub.load('cat-claws/nn', 'rexnet_facexzoo', use_se=False, pretrain
 model = torch.hub.load('cat-claws/nn', 'repvgg_facexzoo', num_blocks = [2, 4, 14, 1], width_multiplier = [0.75, 0.75, 0.75, 2.5], pretrained = 'repvgg_facexzoo')
 model = torch.hub.load('cat-claws/nn', 'mobilefacenet_facexzoo', embedding_size = 512, out_h = 7, out_w = 7) # unfortunately, I did not get pretrained weights
 ```
+
+A few object detection models
+```python
+model = torch.hub.load('cat-claws/nn', 'fasterrcnn', num_classes = 2, pretrained = 'fasterrcnn_svhn_Ky0D')
+```
