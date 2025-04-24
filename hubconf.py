@@ -30,6 +30,7 @@ def exampleconvnet(pretrained=False, **kwargs):
 def simplecnn(pretrained=False, **kwargs):
 	return loader(SimpleCNN, pretrained=pretrained, **kwargs)
 
+from wideresnet import WideResNet
 def wideresnet(pretrained=False, **kwargs):
 	return loader(WideResNet, pretrained=pretrained, **kwargs)
 
