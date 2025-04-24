@@ -30,6 +30,9 @@ def exampleconvnet(pretrained=False, **kwargs):
 def simplecnn(pretrained=False, **kwargs):
 	return loader(SimpleCNN, pretrained=pretrained, **kwargs)
 
+def wideresnet(pretrained=False, **kwargs):
+	return loader(WideResNet, pretrained=pretrained, **kwargs)
+
 from pytorchcv.models.resnet_cifar import get_resnet_cifar
 from pytorchcv.models.wrn_cifar import get_wrn_cifar
 from pytorchcv.models.densenet_cifar import get_densenet_cifar
