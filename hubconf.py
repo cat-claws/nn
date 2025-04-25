@@ -50,7 +50,7 @@ def densenet_cifar(pretrained=False, **kwargs):
 from resnet18_cifar import get_resnet18_cifar
 
 def resnet18_cifar(pretrained=False, **kwargs):
-	loader(get_resnet18_cifar, pretrained=pretrained, **kwargs)
+	return loader(get_resnet18_cifar, pretrained=pretrained, **kwargs)
 
 
 from inception_resnet_v1 import InceptionResnetV1
