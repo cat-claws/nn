@@ -34,24 +34,23 @@ from wideresnet import WideResNet
 def wideresnet(pretrained=False, **kwargs):
 	return loader(WideResNet, pretrained=pretrained, **kwargs)
 
-from pytorchcv.models.resnet_cifar import get_resnet_cifar
+from resnet_cifar import get_resnet_cifar
+
+def resnet_cifar(pretrained=False, **kwargs):
+	if bool(kwargs.pop("pytorchcv", False)):
+		from pytorchcv.models.resnet_cifar import get_resnet_cifar_
+		return loader(get_resnet_cifar_, pretrained=pretrained, **kwargs)
+	else:		
+		return loader(get_resnet_cifar, pretrained=pretrained, **kwargs)
+	
 from pytorchcv.models.wrn_cifar import get_wrn_cifar
 from pytorchcv.models.densenet_cifar import get_densenet_cifar
 
-def resnet_cifar(pretrained=False, **kwargs):
-	return loader(get_resnet_cifar, pretrained=pretrained, **kwargs)
-	
 def wrn_cifar(pretrained=False, **kwargs):
 	return loader(get_wrn_cifar, pretrained=pretrained, **kwargs)
 
 def densenet_cifar(pretrained=False, **kwargs):
 	return loader(get_densenet_cifar, pretrained=pretrained, **kwargs)
-
-from resnet18_cifar import get_resnet18_cifar
-
-def resnet18_cifar(pretrained=False, **kwargs):
-	return loader(get_resnet18_cifar, pretrained=pretrained, **kwargs)
-
 
 from inception_resnet_v1 import InceptionResnetV1
 
