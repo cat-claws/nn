@@ -29,8 +29,8 @@ import torchvision
 # 	return _model
 # _resnet(BasicBlock, [2, 2, 2, 2], weights, progress, **kwargs)
 
-def get_resnet_cifar(block, layers, **kwargs):
-	if ('bottle' in block.lower() or 'neck' in block.lower()):
+def get_resnet_cifar(block_, layers, **kwargs):
+	if ('bottle' in block_.lower() or 'neck' in block_.lower()):
 		block = torchvision.models.resnet.Bottleneck
 	else:
 		block = torchvision.models.resnet.BasicBlock
