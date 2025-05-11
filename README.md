@@ -9,11 +9,17 @@ x = torch.rand(16, 3, 32, 32)
 print(model(x))
 ```
 
+A frequently used ResNet18 model for CIFAR-10 could be loaded like below. Make sure the block is changed to Bottleneck for ResNet50 or deeper.
+```python
+model = torch.hub.load('cat-claws/nn', 'resnet_cifar', block='', layers = [2, 2, 2, 2], num_classes = 10)
+```
+
+
 The ```pytorchcv``` library is not necessary unless we use models from this library, _e.g._, load a 14-layer ResNet for CIFAR-size images
 ```python
-model = torch.hub.load('cat-claws/nn', 'resnet_cifar', pretrained= False, num_classes=10, blocks=14, bottleneck=False, in_channels = 1)
+model = torch.hub.load('cat-claws/nn', 'resnet_cifar', pretrained= False, num_classes=10, blocks=14, bottleneck=False, in_channels = 1, pytorchcv=True)
 ```
-In this case, ```pip install pytorchcv``` is required.
+In this case, ```pip install pytorchcv``` is required. Also, a flag `pytorchcv` is needed in order to load this package, which is a reluctant solution for overlapping function names.
 
 To apply models designed for CIFAR-size images on other sizes, _e.g._, MNIST, padding might be a good solution
 ```python
