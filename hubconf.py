@@ -43,13 +43,12 @@ def resnet_cifar(pretrained=False, **kwargs):
 	else:		
 		return loader(get_resnet_cifar, pretrained=pretrained, **kwargs)
 	
-from pytorchcv.models.wrn_cifar import get_wrn_cifar
-from pytorchcv.models.densenet_cifar import get_densenet_cifar
-
 def wrn_cifar(pretrained=False, **kwargs):
+	from pytorchcv.models.wrn_cifar import get_wrn_cifar
 	return loader(get_wrn_cifar, pretrained=pretrained, **kwargs)
 
 def densenet_cifar(pretrained=False, **kwargs):
+	from pytorchcv.models.densenet_cifar import get_densenet_cifar
 	return loader(get_densenet_cifar, pretrained=pretrained, **kwargs)
 
 from inception_resnet_v1 import InceptionResnetV1
