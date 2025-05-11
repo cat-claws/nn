@@ -1,5 +1,5 @@
 # Optional list of dependencies required by the package
-dependencies = ["torch", "pytorchcv"]
+dependencies = ["torch"]
 
 import torch
 
