@@ -9,13 +9,14 @@ import torchvision
 
 def get_resnet_cifar(block, layers, **kwargs):
 	block = torchvision.models.resnet.Bottleneck if ('bottle' in block.lower() or 'neck' in block.lower()) else torchvision.models.resnet.BasicBlock
+	_relu = bool(kwargs.pop("relu", False))
 	model = torchvision.models.ResNet(block, layers, **kwargs)
 	
 	model.conv1 = torch.nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
 	model.maxpool = torch.nn.Identity()  # Remove maxpool
 	
 	# Optional: modify BasicBlock if you don't want to remove ReLU after bn1
-	if not bool(kwargs.pop("relu", False)):
+	if not _relu:
 		for m in model.modules():
 			if isinstance(m, torchvision.models.resnet.BasicBlock):
 				m.relu = torch.nn.Identity()
