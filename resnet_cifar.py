@@ -15,7 +15,7 @@ def get_resnet_cifar(block, layers, **kwargs):
 	model.maxpool = torch.nn.Identity()  # Remove maxpool
 	
 	# Optional: modify BasicBlock if you don't want to remove ReLU after bn1
-	if not bool(kwargs.get("relu", False)):
+	if not bool(kwargs.pop("relu", False)):
 		for m in model.modules():
 			if isinstance(m, torchvision.models.resnet.BasicBlock):
 				m.relu = torch.nn.Identity()
