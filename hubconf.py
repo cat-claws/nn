@@ -6,8 +6,9 @@ import torch
 def loader(constructor, pretrained, **kwargs):
 	model = constructor(**kwargs)
 	if pretrained:
-		checkpoint = f'https://github.com/cat-claws/nn/releases/download/parameters/{pretrained}.tar.gz'
-		model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint, progress=True))
+		if '.' not in pretrained:
+			pretrained = f'https://github.com/cat-claws/nn/releases/download/parameters/{pretrained}.tar.gz'
+		model.load_state_dict(torch.hub.load_state_dict_from_url(pretrained, progress=True))
 	return model
 
 
